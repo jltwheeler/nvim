@@ -1,34 +1,3 @@
-vim.g.nvim_tree_icons = {
-	default = "",
-	symlink = "",
-	git = {
-		unstaged = "",
-		staged = "S",
-		unmerged = "",
-		renamed = "➜",
-		deleted = "",
-		untracked = "U",
-		ignored = "◌",
-	},
-	folder = {
-		default = "",
-		open = "",
-		empty = "",
-		empty_open = "",
-		symlink = "",
-	},
-}
-vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.show_icons = {
-	git = 1,
-	folders = 1,
-	files = 1,
-	folder_arrows = 1,
-	tree_width = 30,
-}
-vim.nvim_tree_root_folder_modifier = ":~"
-
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
 	return
@@ -94,5 +63,31 @@ nvim_tree.setup({
 		},
 		number = false,
 		relativenumber = false,
+	},
+	renderer = {
+		highlight_git = false,
+		highlight_opened_files = "icon",
+		icons = {
+			glyphs = {
+				default = "",
+				symlink = "",
+				git = {
+					unstaged = "",
+					staged = "S",
+					unmerged = "",
+					renamed = "➜",
+					deleted = "",
+					untracked = "U",
+					ignored = "◌",
+				},
+				folder = {
+					default = "",
+					open = "",
+					empty = "",
+					empty_open = "",
+					symlink = "",
+				},
+			},
+		},
 	},
 })
