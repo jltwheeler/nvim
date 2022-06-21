@@ -37,6 +37,12 @@ keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "J", "mzJ`z", opts)
 
+-- Moving between splits
+keymap("n", "<C-J>", "<C-W><C-J>", opts)
+keymap("n", "<C-K>", "<C-W><C-K>", opts)
+keymap("n", "<C-L>", "<C-W><C-L>", opts)
+keymap("n", "<C-H>", "<C-W><C-H>", opts)
+
 -- Add undo break points for special characters
 keymap("i", ",", ",<c-g>u", opts)
 keymap("i", ".", ".<c-g>u", opts)
