@@ -78,7 +78,12 @@ return packer.startup(function(use)
 
 	-- rust
 	use("rust-lang/rust.vim")
-	use("simrat39/rust-tools.nvim")
+	use({
+		"simrat39/rust-tools.nvim",
+		config = function()
+			require("rust-tools").setup()
+		end,
+	})
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
