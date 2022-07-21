@@ -15,7 +15,6 @@ null_ls.setup({
 	sources = {
 		diagnostics.eslint_d,
 		code_actions.eslint_d,
-		formatting.rustfmt.with({}),
 		formatting.eslint_d.with({
 			condition = function(utils)
 				return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })

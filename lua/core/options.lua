@@ -45,14 +45,14 @@ opt.number = true
 -- Ruler and columns
 opt.colorcolumn = "80"
 opt.signcolumn = "yes"
-vim.highlight.create('ColorColumn', {ctermbg=0, guibg=lightgrey}, false)
+vim.highlight.create("ColorColumn", { ctermbg = 0, guibg = lightgrey }, false)
 opt.cursorline = true
 
 -- Get rid of swap files and backups - generally never use these features.
 opt.swapfile = false
 opt.backup = false
 
-opt.undodir = fn.getenv("HOME").."/.vim/undodir"
+opt.undodir = fn.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
 
 opt.hidden = true
@@ -68,3 +68,4 @@ opt.updatetime = 300
 -- Don't pass messages to |ins-completion-menu|.
 vim.o.shortmess = vim.o.shortmess .. "c"
 
+vim.g.rustfmt_autosave = 1
