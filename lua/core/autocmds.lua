@@ -38,17 +38,10 @@ autocmd("VimResized", {
 })
 
 -- Auto-resize splits when Vim gets resized.
-autocmd("FocusGained", {
+autocmd("FocusGained,BufEnter", {
 	group = MyGroup,
 	pattern = "*",
-	command = ":checktime",
-})
-
--- Update a buffer's contents on focus if it changed outside of Vim.
-autocmd("BufEnter", {
-	group = MyGroup,
-	pattern = "*",
-	command = ":checktime",
+	command = "checktime",
 })
 
 -- HCL file type detection

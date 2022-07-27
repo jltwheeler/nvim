@@ -103,6 +103,9 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-media-files.nvim")
 
+	-- Telescope bookmarks
+	use("dhruvmanila/telescope-bookmarks.nvim") -- https://github.com/dhruvmanila/telescope-bookmarks.nvim
+
 	-- git
 	use("lewis6991/gitsigns.nvim")
 
