@@ -68,8 +68,8 @@ keymap("n", "<leader>fd", [[<cmd>lua require('telescope.builtin').grep_string()<
 keymap("n", "<leader>fm", [[<cmd>lua require('telescope.builtin').keymaps()<cr>]], opts)
 keymap("n", "<leader>fo", [[<cmd>lua require('telescope.builtin').oldfiles()<cr>]], opts)
 keymap("n", "<leader>fv", [[<cmd>lua require('core.jw.telescope').search_config_nvim()<cr>]], opts)
-keymap("n", "<leader>gd", "<cmd>lua require('telescope.builtin').lsp_definitions({show_line = false})<cr>", opts)
-keymap("n", "<leader>gr", "<cmd>lua require('telescope.builtin').lsp_references({show_line = false})<cr>", opts)
+keymap("n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions({show_line = false})<cr>", opts)
+keymap("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references({show_line = false})<cr>", opts)
 keymap("n", "<leader>bm", "<cmd>lua require('telescope').extensions.bookmarks.bookmarks()<cr>", opts)
 
 -- Gitsigns hunk navigation
