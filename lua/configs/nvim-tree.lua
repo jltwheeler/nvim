@@ -20,7 +20,6 @@ nvim_tree.setup({
 		"alpha",
 	},
 	open_on_tab = false,
-	update_cwd = true,
 	actions = {
 		open_file = {
 			quit_on_open = true,
@@ -41,7 +40,7 @@ nvim_tree.setup({
 	},
 	update_focused_file = {
 		enable = true,
-		update_cwd = true,
+		update_root = false,
 	},
 	git = {
 		enable = true,
