@@ -15,13 +15,13 @@ null_ls.setup({
 	sources = {
 		diagnostics.eslint_d,
 		code_actions.eslint_d,
-		formatting.eslint_d.with({
+		--[[ formatting.eslint_d.with({
 			condition = function(utils)
 				return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
 			end,
 			prefer_local = "node_modules/.bin",
 			filetype = { "javascript", "typescript" },
-		}),
+		}), ]]
 		formatting.prettier.with({
 			--[[ condition = function(utils)
 				return not utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
@@ -32,9 +32,9 @@ null_ls.setup({
 				"css",
 				"scss",
 				"json",
-				-- "javascript",
+				"javascript",
 				"javascriptreact",
-				-- "typescript",
+				"typescript",
 				"typescriptreact",
 			},
 		}),

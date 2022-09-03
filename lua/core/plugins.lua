@@ -59,7 +59,6 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 	use("nvim-treesitter/playground")
-	use("p00f/nvim-ts-rainbow") -- Raindbow brackets for TS
 	use("nvim-treesitter/nvim-treesitter-textobjects") -- Additional textobjects for treesitter
 	use({
 		"romgrk/nvim-treesitter-context",
