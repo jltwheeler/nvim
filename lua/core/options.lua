@@ -45,7 +45,7 @@ opt.number = true
 -- Ruler and columns
 opt.colorcolumn = "80"
 opt.signcolumn = "yes"
-vim.highlight.create("ColorColumn", { ctermbg = 0, guibg = lightgrey }, false)
+vim.api.nvim_set_hl(0,'ColorColumn',{ bg='lightgrey' })
 opt.cursorline = true
 
 -- Get rid of swap files and backups - generally never use these features.
