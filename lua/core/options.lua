@@ -1,6 +1,8 @@
 local opt = vim.opt
 local fn = vim.fn
 
+opt.mouse = ""
+
 -- Colorscheme
 opt.termguicolors = true
 -- vim.cmd [[colorscheme tokyonight]]
@@ -17,7 +19,7 @@ opt.expandtab = true
 opt.cindent = true
 
 -- Turn off word wrapping
-opt.wrap = false
+-- opt.wrap = false
 
 -- Let language syntax take care of folding blocks
 opt.foldmethod = "syntax"
@@ -45,7 +47,7 @@ opt.number = true
 -- Ruler and columns
 opt.colorcolumn = "80"
 opt.signcolumn = "yes"
-vim.api.nvim_set_hl(0,'ColorColumn',{ bg='lightgrey' })
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = "lightgrey" })
 opt.cursorline = true
 
 -- Get rid of swap files and backups - generally never use these features.

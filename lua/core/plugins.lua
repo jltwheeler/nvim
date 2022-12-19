@@ -41,10 +41,11 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
+
+	-- Performance
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
 	use("lewis6991/impatient.nvim") -- Faster initial load time of neovim
-
 	use("nathom/filetype.nvim") -- Boost startup time of opening files
 
 	-- Color scheme
@@ -69,11 +70,30 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag") -- Use treesitter to auto close and auto rename html tag
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
-	-- lsp plugins
-	use("neovim/nvim-lspconfig") -- Configure the built-in LSP client
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("jose-elias-alvarez/null-ls.nvim") -- formatting, linting etc.
-	use("jose-elias-alvarez/nvim-lsp-ts-utils") -- Utilities to improve the TS dev ex
+	-- LSP and completion
+	use({
+		"VonHeikemen/lsp-zero.nvim", -- https://github.com/VonHeikemen/lsp-zero.nvim
+		requires = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" },
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
+
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
+
+			-- Snippets
+			{ "L3MON4D3/LuaSnip" },
+			{ "rafamadriz/friendly-snippets" },
+		},
+	})
+	use("lukas-reineke/lsp-format.nvim") -- https://github.com/lukas-reineke/lsp-format.nvim
+	use("jose-elias-alvarez/null-ls.nvim") -- https://github.com/jose-elias-alvarez/null-ls.nvim
 
 	-- rust
 	use("rust-lang/rust.vim")
@@ -85,32 +105,26 @@ return packer.startup(function(use)
 	})
 
 	-- cmp plugins
-	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-nvim-lsp") -- lsp completions
-	use("hrsh7th/cmp-nvim-lua") -- lua completions
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
 	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("onsails/lspkind-nvim") -- Custom icons on completion menu
-
-	-- snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
-	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-media-files.nvim")
-
-	-- Telescope bookmarks
 	use("dhruvmanila/telescope-bookmarks.nvim") -- https://github.com/dhruvmanila/telescope-bookmarks.nvim
 
-	-- git
-	use("lewis6991/gitsigns.nvim")
+	-- version control
+	use({
+		"lewis6991/gitsigns.nvim", -- https://github.com/lewis6991/gitsigns.nvim
+		requires = { "petertriho/nvim-scrollbar" },
+	})
+	use("ruifm/gitlinker.nvim") -- https://github.com/ruifm/gitlinker.nvim
 
 	-- File explorer
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
+
+	use("mbbill/undotree") -- https://github.com/mbbill/undotree
 
 	-- Tree view for outlining lsp symbols
 	use("simrat39/symbols-outline.nvim")
@@ -127,22 +141,12 @@ return packer.startup(function(use)
 	-- Dashboard
 	use({ "goolord/alpha-nvim" })
 
-	use({ "akinsho/toggleterm.nvim" }) -- terminal within neovim
-
-	-- smooth scrolling
-	use({
-		"karb94/neoscroll.nvim",
-		config = function()
-			require("neoscroll").setup()
-		end,
-	})
-
 	-- Utilities
 	use("windwp/nvim-autopairs")
 	use("b3nj5m1n/kommentary") -- commenting code
 	use("tpope/vim-surround")
-	use("jltwheeler/nvim-git-link")
 	use("christoomey/vim-tmux-navigator") -- Easy navigation between tmux panes and vim
+	use("yamatsum/nvim-cursorline") -- https://github.com/yamatsum/nvim-cursorline
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
