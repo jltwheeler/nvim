@@ -14,6 +14,7 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		diagnostics.eslint_d,
+		-- diagnostics.eslint,
 		code_actions.eslint_d,
 		--[[ formatting.eslint_d.with({
 			condition = function(utils)

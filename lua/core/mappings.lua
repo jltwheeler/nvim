@@ -71,6 +71,8 @@ keymap("n", "<leader>fv", [[<cmd>lua require('core.jw.telescope').search_config_
 keymap("n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions({show_line = false})<cr>", opts)
 keymap("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references({show_line = false})<cr>", opts)
 keymap("n", "<leader>bm", "<cmd>lua require('telescope').extensions.bookmarks.bookmarks()<cr>", opts)
+keymap("n", "<leader>ltd", "<cmd>lua require('telescope.builtin').lsp_type_definitions({show_line = false})<cr>", opts)
+keymap("n", "<leader>ld", "<cmd>lua require('telescope.builtin').lsp_definitions({show_line = false})<cr>", opts)
 
 -- Gitsigns hunk navigation
 keymap("n", "<leader>gk", ":Gitsigns prev_hunk<CR>", opts)
@@ -100,3 +102,6 @@ keymap("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<CR>", opts)
 keymap("n", "<leader>fn", "<cmd>DashboardNewFile<CR>", opts)
 
 keymap("n", "<leader>rf", "<cmd>lua vim.lsp.buf.formatting_sync({}, 5000)<CR>", opts)
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
