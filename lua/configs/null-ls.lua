@@ -37,6 +37,7 @@ local sources = {
       "typescript",
       "typescriptreact",
     },
+    -- extra_args = { "--single-quote", "--print-width", "140" },
   }),
   -- formatting.black.with({ extra_args = { "--fast" } }),
   formatting.stylua,
