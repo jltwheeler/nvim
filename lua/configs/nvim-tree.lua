@@ -13,12 +13,7 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 nvim_tree.setup({
 	disable_netrw = true,
 	hijack_netrw = true,
-	open_on_setup = false,
 	auto_reload_on_write = true,
-	ignore_ft_on_setup = {
-		"dashboard",
-		"alpha",
-	},
 	open_on_tab = false,
 	actions = {
 		open_file = {
@@ -49,7 +44,6 @@ nvim_tree.setup({
 	},
 	view = {
 		width = 50,
-		height = 30,
 		hide_root_folder = true,
 		side = "right",
 		mappings = {

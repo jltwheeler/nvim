@@ -1,6 +1,17 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+-- Wipe leader mappings
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+-- Remap for dealing with word wrap nicely
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Move text under selection up and down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- set leader key to spacebar
 keymap("n", "<Space>", "<NOP>", opts)
 vim.g.mapleader = " "
@@ -105,3 +116,25 @@ keymap("n", "<leader>rf", "<cmd>lua vim.lsp.buf.formatting_sync({}, 5000)<CR>", 
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Centralise cursor after certain actions
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "}", "}zzzv")
+vim.keymap.set("n", "{", "{zzzv")
+
+-- Gitlinker
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>gb",
+	'<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+	{ silent = true }
+)
+vim.api.nvim_set_keymap(
+	"v",
+	"<leader>gb",
+	'<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+	{}
+)

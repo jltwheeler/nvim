@@ -21,6 +21,7 @@ configs.setup({
 		"ruby",
 		"rust",
 		"scss",
+		"sql",
 		"svelte",
 		"toml",
 		"tsx",
