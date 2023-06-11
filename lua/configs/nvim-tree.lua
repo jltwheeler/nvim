@@ -14,10 +14,6 @@ nvim_tree.setup({
 	disable_netrw = true,
 	hijack_netrw = true,
 	auto_reload_on_write = true,
-	ignore_ft_on_setup = {
-		"dashboard",
-		"alpha",
-	},
 	open_on_tab = false,
 	actions = {
 		open_file = {
