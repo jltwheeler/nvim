@@ -5,6 +5,10 @@ local luasnip = require('luasnip')
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
+  if client.name == "vtsls" then
+    require("twoslash-queries").attach(client, bufnr)
+  end
+
   lsp_zero.default_keymaps({ buffer = bufnr })
 
   local nmap = function(keys, func, desc)
@@ -34,16 +38,24 @@ lsp_zero.on_attach(function(client, bufnr)
   nmap("gl", vim.diagnostic.open_float, "[G]o to [L]ine diagnostic float")
 end)
 
+require("mason.settings").set({ ui = { border = "rounded" } })
+lsp_zero.setup()
+
+vim.diagnostic.config({ virtual_text = true })
+
+-- this inserts () after selecting a function or method item
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
 local check_backspace = function()
   local col = vim.fn.col(".") - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
-
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = { "vtsls", "eslint", "lua_ls", "rust_analyzer", "pyright",
-    "cssls", "html", "jsonls", "taplo"
+    "cssls", "html", "jsonls", "taplo", "gopls"
   },
   handlers = {
     lsp_zero.default_setup,
@@ -116,37 +128,5 @@ cmp.setup({
   experimental = {
     ghost_text = false,
     native_menu = false,
-  },
-})
-
-cmp.setup.cmdline("/", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = "buffer" },
-  },
-  view = {
-    entries = { name = "custom", selection_order = "near_cursor" },
-  },
-})
-
-cmp.setup.cmdline("?", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = "buffer" },
-  },
-  view = {
-    entries = { name = "custom", selection_order = "near_cursor" },
-  },
-})
-
-cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = "path" },
-  }, {
-    { name = "cmdline" },
-  }),
-  view = {
-    entries = { name = "custom", selection_order = "near_cursor" },
   },
 })

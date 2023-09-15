@@ -16,7 +16,7 @@ return {
                 "bash", "dockerfile", "graphql", "html",
                 "javascript", "json", "lua", "php", "python", "markdown",
                 "rust", "css", "scss", "tsx", "typescript", "yaml", "sql",
-                "go", "terraform"
+                "go", "gomod", "gosum", "gowork", "terraform"
             },
             sync_install = false,
             auto_install = true,

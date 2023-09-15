@@ -51,7 +51,10 @@ return {
                 typescript = formatters.prettierd,
                 typescriptreact = formatters.prettierd,
                 yaml = formatters.lsp,
-                toml = formatters.lsp
+                toml = formatters.lsp,
+                go = {
+                    formatters.shell({ cmd = { "gofmt" } }),
+                },
             },
             -- fallback_formatter = {
             --     formatters.remove_trailing_whitespace,
