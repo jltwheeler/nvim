@@ -81,13 +81,17 @@ vim.keymap.set("n", "{", "{zzzv")
 
 -- Replace current word under cursor
 vim.keymap.set("n", "<leader>rw",
- [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
- {desc = "[R]eplace [W]ord under cursor"})
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "[R]eplace [W]ord under cursor" })
 
 -- Void pasting, deleting and copying
-vim.keymap.set("x", "<leader>p", '"_dP', {desc = "Void paste"})
-vim.keymap.set("n", "<leader>y", '"+y', {desc = "Yank movement to clipboard"})
-vim.keymap.set("v", "<leader>y", '"+y', {desc = "Yank selection to clipboard"})
-vim.keymap.set("n", "<leader>Y", '"+Y', {desc = "Yank line to clipboard"})
-vim.keymap.set("n", "<leader>d", '"_d', {desc = "Void delete movement"})
-vim.keymap.set("v", "<leader>d", '"_d', {desc = "Void delete selection"})
+vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Void paste" })
+vim.keymap.set("n", "<leader>y", '"+y', { desc = "Yank movement to clipboard" })
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank selection to clipboard" })
+vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Yank line to clipboard" })
+vim.keymap.set("n", "<leader>d", '"_d', { desc = "Void delete movement" })
+vim.keymap.set("v", "<leader>d", '"_d', { desc = "Void delete selection" })
+
+-- Gitsigns hunk navigation
+keymap("n", "<leader>gk", ":Gitsigns prev_hunk<CR>", opts)
+keymap("n", "<leader>gj", ":Gitsigns next_hunk<CR>", opts)

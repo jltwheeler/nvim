@@ -6,21 +6,33 @@ return {
         cmd = "Telescope",
         version = false,
         opts = {
-          defaults = {
-            layout_config = {
-                horizontal = {
-                  prompt_position = "top",
-                  preview_width = 0.55,
-                  results_width = 0.8,
+            defaults = {
+                prompt_prefix = " ",
+                selection_caret = "❯ ",
+                entry_prefix = "  ",
+                initial_mode = "insert",
+                selection_strategy = "reset",
+                sorting_strategy = "ascending",
+                layout_strategy = "horizontal",
+                layout_config = {
+                    horizontal = {
+                        prompt_position = "top",
+                        preview_width = 0.55,
+                        results_width = 0.8,
+                    },
+                    vertical = {
+                        mirror = false,
+                    },
+                    width = 0.87,
+                    height = 0.80,
+                    preview_cutoff = 120,
                 },
-                vertical = {
-                  mirror = false,
-                },
-                width = 0.87,
-                height = 0.80,
-                preview_cutoff = 120,
-            },
-          }
+                path_display = { "truncate" },
+                winblend = 20,
+                color_devicons = true,
+                use_less = true,
+                set_env = { ["COLORTERM"] = "truecolor" },
+            }
         },
         config = function()
             local telescope = require('telescope')
@@ -78,10 +90,10 @@ return {
             end,
             desc = "[F]ind [O]ld files"
         }, {
-                '<leader>ft',
-                vim.cmd.TodoTelescope,
-                desc = "[F]ind [T]odo comments"
-            }, {
+            '<leader>ft',
+            vim.cmd.TodoTelescope,
+            desc = "[F]ind [T]odo comments"
+        }, {
             '<leader>fw',
             function()
                 require("telescope.builtin").live_grep()
@@ -102,10 +114,10 @@ return {
         }
         }
     }, {
-    "princejoogie/dir-telescope.nvim",     -- https://github.com/princejoogie/dir-telescope.nvim
+    "princejoogie/dir-telescope.nvim", -- https://github.com/princejoogie/dir-telescope.nvim
     dependencies = { "nvim-telescope/telescope.nvim" }
 }, {
-    "dhruvmanila/telescope-bookmarks.nvim",     -- https://github.com/dhruvmanila/telescope-bookmarks.nvim
+    "dhruvmanila/telescope-bookmarks.nvim", -- https://github.com/dhruvmanila/telescope-bookmarks.nvim
     dependencies = { "nvim-telescope/telescope.nvim" }
 }
 }
