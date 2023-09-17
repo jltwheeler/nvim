@@ -9,6 +9,10 @@ lsp_zero.on_attach(function(client, bufnr)
     require("twoslash-queries").attach(client, bufnr)
   end
 
+  if client.name == "gopls" then
+    require("twoslash-queries").attach(client, bufnr)
+  end
+
   lsp_zero.default_keymaps({ buffer = bufnr })
 
   local nmap = function(keys, func, desc)
@@ -30,7 +34,7 @@ lsp_zero.on_attach(function(client, bufnr)
     builtin.lsp_references({ show_line = false })
   end, "[G]o [R]eferences")
   nmap("K", vim.lsp.buf.hover, "Hover documentation")
-  -- nmap("<C-k>", vim.lsp.buf.signature_help, "Signature documentation")
+  nmap("<C-k>", vim.lsp.buf.signature_help, "Signature documentation")
   nmap("gi", vim.lsp.buf.implementation, "[G]o to [I]mplementation")
   nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
   nmap("[d", vim.diagnostic.goto_prev, "Go to previous [D]iagnostic message")
@@ -68,8 +72,8 @@ cmp.setup({
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    -- ["<C-k>"] = cmp.mapping.select_prev_item(),
-    -- ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
