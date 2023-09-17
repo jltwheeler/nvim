@@ -7,35 +7,24 @@ return {
         version = false,
         opts = {
             defaults = {
-                prompt_prefix = " ",
-                selection_caret = "❯ ",
-                entry_prefix = "  ",
                 initial_mode = "insert",
-                selection_strategy = "reset",
-                sorting_strategy = "ascending",
-                layout_strategy = "horizontal",
+                layout_strategy = "vertical",
+                sorting_strategy = 'ascending',
                 layout_config = {
-                    horizontal = {
-                        prompt_position = "top",
-                        preview_width = 0.55,
-                        results_width = 0.8,
-                    },
                     vertical = {
                         mirror = false,
+                        prompt_position = "top",
                     },
-                    width = 0.87,
-                    height = 0.80,
-                    preview_cutoff = 120,
                 },
                 path_display = { "truncate" },
                 winblend = 20,
                 color_devicons = true,
-                use_less = true,
                 set_env = { ["COLORTERM"] = "truecolor" },
             }
         },
-        config = function()
+        config = function(_, opts)
             local telescope = require('telescope')
+            telescope.setup(opts)
             telescope.load_extension('dir')
         end,
         keys = {
