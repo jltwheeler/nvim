@@ -56,10 +56,6 @@ return {
                     formatters.shell({ cmd = { "gofmt" } }),
                 },
             },
-            -- fallback_formatter = {
-            --     formatters.remove_trailing_whitespace,
-            --     formatters.prettierd,
-            -- }
         })
     end
 },

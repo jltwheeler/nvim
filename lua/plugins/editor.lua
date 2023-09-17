@@ -7,45 +7,8 @@ return {
         keywords = { TODO = { icon = " ", color = "info", alt = { "XX" } } }
     }
 }, {
-    "segeljakt/vim-silicon", -- https://github.com/segeljakt/vim-silicon
-    keys = {
-        {
-            "<leader>i",
-            ":Silicon  ~/Pictures/Code<CR>",
-            mode = "v",
-            desc = "Yank code image"
-        }
-    },
-    config = function()
-        vim.g.silicon = {
-            theme = "Monokai Extended",
-            font = "FiraCode Nerd Font Mono",
-            background = "#AAAAFF",
-            ["shadow-color"] = "#555555",
-            ["line-pad"] = 2,
-            ["pad-horiz"] = 80,
-            ["pad-vert"] = 100,
-            ["shadow-blur-radius"] = 0,
-            ["shadow-offset-x"] = 0,
-            ["shadow-offset-y"] = 0,
-            ["line-number"] = true,
-            ["round-corner"] = true,
-            ["window-controls"] = true
-        }
-    end
-}, {
     "lukas-reineke/indent-blankline.nvim", -- https://github.com/lukas-reineke/indent-blankline.nvim
     opts = { show_current_context = true }
-}, {
-    "yamatsum/nvim-cursorline", -- https://github.com/yamatsum/nvim-cursorline
-    opts = {
-        cursorline = { enable = true, timeout = 50, number = false },
-        cursorword = {
-            enable = true,
-            min_length = 3,
-            hl = { underline = true }
-        }
-    }
 }, {
     "kylechui/nvim-surround", -- https://github.com/kylechui/nvim-surround
     version = "*",
@@ -70,7 +33,6 @@ return {
 }, {
     "windwp/nvim-ts-autotag", -- https://github.com/windwp/nvim-ts-autotag
     config = true
-}, {
 }, {
     'alexghergh/nvim-tmux-navigation',
     config = function()
@@ -140,18 +102,6 @@ return {
     opts = {
         plugins = { spelling = { enabled = true, suggestions = 20 } },
         window = { border = "single" }
-    }
-}, {
-    "rmagatti/alternate-toggler", -- https://github.com/rmagatti/alternate-toggler
-    config = true,
-    lazy = true,
-    cmd = "ToggleAlternate",
-    keys = {
-        {
-            "<leader>tv",
-            "<CMD>ToggleAlternate<CR>",
-            desc = "Toggle alternative value"
-        }
     }
 }
 }

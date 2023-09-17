@@ -63,6 +63,17 @@ require('mason-lspconfig').setup({
   },
   handlers = {
     lsp_zero.default_setup,
+    lua_ls = function()
+      require('lspconfig').lua_ls.setup({
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
+      })
+    end,
   },
 })
 cmp.setup({
