@@ -106,6 +106,6 @@ return {
 }, {
     "chrisgrieser/nvim-puppeteer", --https://github.com/chrisgrieser/nvim-puppeteer
     dependencies = "nvim-treesitter/nvim-treesitter",
-    ft = { "python", "javascript", "typescript" },
+    ft = { "python", "javascript", "typescript", "typescriptreact", "javascriptreact" },
 }
 }
