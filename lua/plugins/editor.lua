@@ -103,9 +103,10 @@ return {
         plugins = { spelling = { enabled = true, suggestions = 20 } },
         window = { border = "single" }
     }
-}, {
-    "chrisgrieser/nvim-puppeteer", --https://github.com/chrisgrieser/nvim-puppeteer
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    ft = { "python", "javascript", "typescript", "typescriptreact", "javascriptreact" },
-}
+},
+    -- {
+    --     "chrisgrieser/nvim-puppeteer", --https://github.com/chrisgrieser/nvim-puppeteer
+    --     dependencies = "nvim-treesitter/nvim-treesitter",
+    --     ft = { "python", "javascript", "typescript", "typescriptreact", "javascriptreact" },
+    -- }
 }
