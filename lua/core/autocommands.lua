@@ -3,7 +3,7 @@ local autocmd = vim.api.nvim_create_autocmd
 MyGroup = augroup("MyGroup", {})
 
 -- Disable continuation of comments on next line apart from on enter in insert
-autocmd("BufWinEnter,BufRead,BufNewFile", {
+autocmd({ "BufWinEnter", "BufRead", "BufNewFile" }, {
   group = MyGroup,
   pattern = "*",
   callback = function()
@@ -38,19 +38,19 @@ autocmd("VimResized", {
 })
 
 -- Auto-resize splits when Vim gets resized.
-autocmd("FocusGained,BufEnter", {
+autocmd({ "FocusGained", "BufEnter" }, {
   group = MyGroup,
   pattern = "*",
   command = "checktime",
 })
 
 -- HCL file type detection
-autocmd("BufRead,BufNewFile", {
+autocmd({ "BufRead", "BufNewFile" }, {
   group = MyGroup,
   pattern = "*.tf,*.tfvars",
   command = "set syntax=hcl",
 })
-autocmd("BufRead,BufNewFile", {
+autocmd({ "BufRead", "BufNewFile" }, {
   group = MyGroup,
   pattern = "*.tf,*.tfvars",
   command = "set filetype=hcl",
